@@ -1,0 +1,25 @@
+{
+  "name": "douban",
+  "version": "1.0.0",
+  "description": "这是一个神奇的网站",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baoxd/douban.git"
+  },
+  "keywords": [
+    "react",
+    "es6",
+    "webpack",
+    "nodejs"
+  ],
+  "author": "baoxd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baoxd/douban/issues"
+  },
+  "homepage": "https://github.com/baoxd/douban#readme"
+}
