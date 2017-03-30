@@ -4,7 +4,8 @@
   "description": "这是一个神奇的网站",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "npm run test",
+    "server":"node ./server.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/baoxd/douban/issues"
   },
-  "homepage": "https://github.com/baoxd/douban#readme"
+  "homepage": "https://github.com/baoxd/douban#readme",
+  "devDependencies": {
+    "express": "^4.15.2"
+  }
 }
