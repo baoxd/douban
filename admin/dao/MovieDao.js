@@ -42,11 +42,11 @@ class MovieDao {
 
 	}
 
-	// async函数
-	async execDao(method, ...args) {
-		let result = await this[method](...args) ;
-		return result;
-	}
+	// async函数，node暂时不支持，V7版本支持，Node运行参数里加上--harmony或者--harmony-async-await
+	// async execMethod(method, ...args) {
+	// 	let result = await this[method](...args) ;
+	// 	return result;
+	// }
 }
 
 module.exports = new MovieDao();

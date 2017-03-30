@@ -9,7 +9,8 @@ class MovieService {
 
 	// 查询所有电影
 	findAll() {
-		return movieDao.findAll() ;
+		// return movieDao.execMethod('findAll') ;
+		return movieDao.findAll();
 	}
 
 	// 查询热门电影
