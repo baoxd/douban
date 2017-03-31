@@ -32,6 +32,21 @@ class UserDao {
 			});
 		});
 	}
+
+	// 查询所有用户
+	findAll() {
+		return new Promise(function(resolve, reject){
+			let sql = `select * from user`;
+
+			pool.query(sql, function(err, results){
+				if(err){
+					reject(err);
+					return;
+				}
+				resolve(results);
+			});
+		});
+	}
 }
 
 module.exports = new UserDao();

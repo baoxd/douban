@@ -41,6 +41,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const Router = require("./admin/router/routes");
 
+app.locals.moment = require("moment");
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 app.set('views', path.join(__dirname, "admin/views"));

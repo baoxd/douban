@@ -44,15 +44,34 @@ class UserAction {
 		});
 	}
 
+	// 用户列表
+	userListAdmin(req, res) {
+		userService.findAll().then(function(data){
+			res.render("userlist", {list:data, title:'用户列表'});
+		}).catch(function(err){
+			console.log(err);
+			res.redirect("error");
+		});
+	}
+
 	// 后台登录验证
-	
+	loginCheck(req, res, next) {
+		let user = req.session.user ;
+		if(!user){
+			return res.redirect("/admin/goToLogin");
+		}
+		next();
+	}
 
 	// 后台访问权限验证
 	adminAuthCheck(req, res, next) {
 		let user = req.session.user ;
+		if(!user){
+			return res.redirect("/admin/goToLogin");
+		}
 		// 非管理员角色
-		if(user.role !=1){
-			return req.redirect("/admin/index");
+		if(user.role != 1){
+			return res.redirect("/admin/index");
 		}	
 		next();
 	}

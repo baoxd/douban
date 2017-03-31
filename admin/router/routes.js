@@ -10,7 +10,7 @@ const  Router = function(app){
 	});
 
 	// 首页
-	app.use("/admin/index", movieAction.indexAdmin);
+	app.use("/admin/index", userAction.adminAuthCheck , movieAction.indexAdmin);
 
 	// 跳转注册页面
 	app.use("/admin/goToRegister", userAction.showRegisterAdmin);
@@ -20,6 +20,8 @@ const  Router = function(app){
 	app.use("/admin/register", userAction.registerAdmin);
 	// 用户注册
 	app.use("/admin/login", userAction.loginAdmin);
+	// 用户列表
+	app.use("/admin/userlist", userAction.adminAuthCheck , userAction.userListAdmin);
 }
 
 module.exports = Router;

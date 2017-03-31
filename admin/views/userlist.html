@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <head>
+    <title><%=title %></title>
+    <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script Src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body style="margin-bottom:50px">
+    <div class="container">
+      <div class="row">
+        <div class="page-header">
+          <h1><%=title %></h1><small>豆瓣电影</small>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+         <div class="navbar-header"><a href="/" class="navbar-brand">豆瓣电影</a></div>
+        <% if(user){ %>
+          <p class="navbar-text navbar-right"><span>欢迎你，<%=user.name %></span><span>&nbsp;|&nbsp;</span><a href="/admin/logout" class="navbar-link">登出</a></p>
+        <%  }else{ %>
+          <p class="navbar-text navbar-right"><a href="#" data-toggle="modal" data-target="#signupModal" class="navbar-link">注册</a><span>&nbsp;|&nbsp;</span><a href="#" data-toggle="modal" data-target="#signinModal" class="navbar-link">登陆</a></p>
+         <% } %>
+      </div>
+    </div>
+    <div id="signupModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form method="POST" action="/user/signup">
+            <div class="modal-header">注册</div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="signupName">用户名</label>
+                <input id="signupName" name="user[name]" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">密码</label>
+                <input id="signupPassword" name="user[password]" type="password" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+              <button type="submit" class="btn btn-success">提交</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="signinModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form method="POST" action="/user/signin">
+            <div class="modal-header">登陆</div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="signinName">用户名</label>
+                <input id="signinName" name="user[name]" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="signinPassword">密码</label>
+                <input id="signinPassword" name="user[password]" type="password" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+              <button type="submit" class="btn btn-success">提交</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>用户名</th>
+              <th>角色</th>
+              <th>时间</th>
+              <th>查看</th>
+              <th>更新</th>
+              <th>删除</th>
+            </tr>
+            <tbody>
+              <% if(list && list.length>0){ %>
+                <%  for(var i = 0 ; i < list.length ; i++){ %>
+                      <tr class="item-id-<%=list[i].id %>">
+                        <td><%=list[i].name %></td>
+                        <td>
+                            <% if(list[i].role == 1){ %>
+                                管理员
+                            <% } else { %>
+                                普通用户
+                            <% } %>
+                        <td><%=moment(list[i].createtime*1).format('MM/DD/YYYY') %></td>
+                        <td><a target="_blank" href="../datial/<%=list[i].id %>">查看</a></td>
+                        <td><a target="_blank" href="../admin/control/update/<%=list[i].id %>">修改</a></td>
+                        <td>
+                          <button type="button" data-id="<%=list[i].id %>" class="btn btn-danger del">删除</button>
+                        </td>
+                      </tr>
+                 <% } %>
+             <% } %>
+            </tbody>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <!--script(src="/js/admin.js")-->
+  </body>
+</html>

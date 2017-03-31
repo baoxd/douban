@@ -14,6 +14,11 @@ class UserService {
 	login(user) {
 		return userDao.findByNP(user);
 	}
+
+	// 查询用户列表
+	findAll() {
+		return userDao.findAll();
+	}
 }
 
 module.exports = new UserService();
