@@ -22,6 +22,8 @@ const  Router = function(app){
 	app.use("/admin/login", userAction.loginAdmin);
 	// 用户列表
 	app.use("/admin/userlist", userAction.adminAuthCheck , userAction.userListAdmin);
+	// 退出登录
+	app.use("/admin/logout", userAction.logoutAdmin);
 }
 
 module.exports = Router;

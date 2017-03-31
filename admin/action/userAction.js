@@ -44,6 +44,12 @@ class UserAction {
 		});
 	}
 
+	// 退出
+	logoutAdmin(req, res) {
+		delete req.session.user;
+		res.redirect("/admin/index");
+	}
+
 	// 用户列表
 	userListAdmin(req, res) {
 		userService.findAll().then(function(data){
@@ -71,7 +77,7 @@ class UserAction {
 		}
 		// 非管理员角色
 		if(user.role != 1){
-			return res.redirect("/admin/index");
+			return res.render("error", {msg: "您没有权限进行此操作!"});
 		}	
 		next();
 	}

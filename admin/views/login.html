@@ -20,7 +20,7 @@
       <div class="container">
         <div class="navbar-header"><a href="/" class="navbar-brand">豆瓣电影</a></div>
         <% if(user){ %>
-          <p class="navbar-text navbar-right"><span>欢迎你，<%=user.name %></span><span>&nbsp;|&nbsp;</span><a href="/logout" class="navbar-link">登出</a></p>
+          <p class="navbar-text navbar-right"><span>欢迎你，<%=user.name %></span><span>&nbsp;|&nbsp;</span><a href="/admin/logout" class="navbar-link">登出</a></p>
         <%  }else{ %>
           <p class="navbar-text navbar-right"><a href="#" data-toggle="modal" data-target="#signupModal" class="navbar-link">注册</a><span>&nbsp;|&nbsp;</span><a href="#" data-toggle="modal" data-target="#signinModal" class="navbar-link">登陆</a></p>
          <% } %>
@@ -29,7 +29,7 @@
     <div id="signupModal" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
-          <form method="POST" action="/user/signup">
+          <form method="POST" action="/admin/register">
             <div class="modal-header">注册</div>
             <div class="modal-body">
               <div class="form-group">
@@ -39,6 +39,10 @@
               <div class="form-group">
                 <label for="signupPassword">密码</label>
                 <input id="signupPassword" name="user[password]" type="password" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="signupRole">角色</label>
+                <input id="signupRole" name="user[role]" type="text" class="form-control">
               </div>
             </div>
             <div class="modal-footer">
@@ -52,7 +56,7 @@
     <div id="signinModal" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
-          <form method="POST" action="/user/signin">
+          <form method="POST" action="/admin/login">
             <div class="modal-header">登陆</div>
             <div class="modal-body">
               <div class="form-group">
