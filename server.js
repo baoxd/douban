@@ -38,12 +38,14 @@ const path = require("path");
 const port = process.env.PORT || 8001;
 const app = express();
 const session = require("express-session");
+const bodyParser = require("body-parser");
 const Router = require("./admin/router/routes");
 
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 app.set('views', path.join(__dirname, "admin/views"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.urlencoded({extended: true})) ;
 app.use(session({
 	// 新增
 	resave: true,

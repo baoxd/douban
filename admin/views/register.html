@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <head>
+    <title>注册页面</title>
+    <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script Src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body style="margin-bottom:50px">
+    <div class="container">
+      <div class="row">
+        <div class="page-header">
+          <h1>注册页面</h1><small>豆瓣电影</small>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <div class="navbar-header"><a href="/" class="navbar-brand">豆瓣电影</a></div>
+        <% if(user){ %>
+          <p class="navbar-text navbar-right"><span>欢迎你，<%=user.name %></span><span>&nbsp;|&nbsp;</span><a href="/logout" class="navbar-link">登出</a></p>
+        <%  }else{ %>
+          <p class="navbar-text navbar-right"><a href="#" data-toggle="modal" data-target="#signupModal" class="navbar-link">注册</a><span>&nbsp;|&nbsp;</span><a href="#" data-toggle="modal" data-target="#signinModal" class="navbar-link">登陆</a></p>
+         <% } %>
+      </div>
+    </div>
+    <div id="signupModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form method="POST" action="/user/signup">
+            <div class="modal-header">注册</div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="signupName">用户名</label>
+                <input id="signupName" name="user[name]" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">密码</label>
+                <input id="signupPassword" name="user[password]" type="password" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+              <button type="submit" class="btn btn-success">提交</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="signinModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form method="POST" action="/user/signin">
+            <div class="modal-header">登陆</div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="signinName">用户名</label>
+                <input id="signinName" name="user[name]" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="signinPassword">密码</label>
+                <input id="signinPassword" name="user[password]" type="password" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+              <button type="submit" class="btn btn-success">提交</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <form method="POST" action="/admin/register">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="signupName">用户名</label>
+                <input id="signupName" name="user[name]" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">密码</label>
+                <input id="signupPassword" name="user[password]" type="password" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">角色(1: 管理员 2: 普通用户)</label>
+                <input id="signupRole" name="user[role]" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                  <!-- <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button> -->
+                  <button type="submit" class="btn btn-success">注册</button>
+              </div>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+              <button type="submit" class="btn btn-success">提交</button>
+            </div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
