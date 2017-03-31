@@ -11,6 +11,12 @@ const  Router = function(app){
 
 	// 首页
 	app.use("/admin/index", userAction.adminAuthCheck , movieAction.indexAdmin);
+	// 跳转到添加电影
+	app.use("/admin/movieGoToAdd", userAction.adminAuthCheck, movieAction.movieGoToAdd);
+	// 添加电影
+	// connect-multiparty 文件上传中间件 
+	app.use("/admin/movieAdd", userAction.adminAuthCheck, require('connect-multiparty')(), movieAction.movieAdd);
+
 
 	// 跳转注册页面
 	app.use("/admin/goToRegister", userAction.showRegisterAdmin);

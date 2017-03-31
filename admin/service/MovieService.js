@@ -2,6 +2,7 @@
 	电影服务类
 */
 const movieDao = require('../dao/MovieDao');
+const utils = require("../utils/utils");
 
 class MovieService {
 	constructor(){
@@ -25,7 +26,9 @@ class MovieService {
 
 	// 添加添加
 	add(movie) {
-
+		movie.id = utils.uuid();
+		movie.createtime = Date.now();
+		return movieDao.add(movie);
 	}
 
 	// 删除电影

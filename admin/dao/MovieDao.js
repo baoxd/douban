@@ -33,8 +33,19 @@ class MovieDao {
 	}
 
 	// 添加电影
-	add(movie) {
+	add({id, title, doctor, language, country, summary, flashpath, poster, year, type, createtime}) {
+		return new Promise(function(resolve, reject){
+			let sql = `insert into movie(id, title, doctor, language, country, summary, flashpath, poster, year, type, createtime)
+						values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
+			pool.query(sql, [id, title, doctor, language, country, summary, flashpath, poster, year, type, createtime], function(err, results){
+				if(err){
+					reject(err);
+					return;
+				}
+				resolve(results);
+			});
+		});
 	}
 
 	// 更新电影
