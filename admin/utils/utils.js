@@ -13,14 +13,14 @@ module.exports = {
 		return res;
 	},
 	upload: function(files){
-		let	file = files["uploadPoster"],
+		var	file = files["uploadPoster"],
 			tmpPath = file.path,
 			originalFilename = file.originalFilename,
 			type = file.type,
 			size = file.size ;
 
 		if (originalFilename) {
-			let timestamp = Date.now(),
+			var timestamp = Date.now(),
 				type = type.split("/")[1],
 				newName = timestamp + "." + type,
 				newPath = path.join(__dirname, "../../", "public/upload", newName),
