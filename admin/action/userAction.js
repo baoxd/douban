@@ -56,7 +56,7 @@ class UserAction {
 			res.render("userlist", {list:data, title:'用户列表'});
 		}).catch(function(err){
 			console.log(err);
-			res.redirect("error");
+			res.render("error");
 		});
 	}
 

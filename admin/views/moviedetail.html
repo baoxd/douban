@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <head>
+    <title>电影-详情</title>
+    <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script Src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body style="margin-bottom:50px">
+    <div class="container">
+      <div class="row">
+        <div class="page-header">
+          <h1>电影-详情</h1><small>豆瓣电影</small>
+        </div>
+      </div>
+    </div>
+
+     <div class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <div class="navbar-header"><a href="/" class="navbar-brand">豆瓣电影</a></div>
+        <% if(user){ %>
+          <p class="navbar-text navbar-right"><span>欢迎你，<%=user.name %></span><span>&nbsp;|&nbsp;</span><a href="/admin/logout" class="navbar-link">登出</a></p>
+        <%  }else{ %>
+          <p class="navbar-text navbar-right"><a href="#" data-toggle="modal" data-target="#signupModal" class="navbar-link">注册</a><span>&nbsp;|&nbsp;</span><a href="#" data-toggle="modal" data-target="#signinModal" class="navbar-link">登陆</a></p>
+         <% } %>
+      </div>
+    </div>
+
+    <div id="signupModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form method="POST" action="/admin/register">
+            <div class="modal-header">注册</div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="signupName">用户名</label>
+                <input id="signupName" name="user[name]" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">密码</label>
+                <input id="signupPassword" name="user[password]" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="signupRole">角色</label>
+                <input id="signupRole" name="user[role]" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+              <button type="submit" class="btn btn-success">提交</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="signinModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form method="POST" action="/admin/login">
+            <div class="modal-header">登陆</div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="signinName">用户名</label>
+                <input id="signinName" name="user[name]" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="signinPassword">密码</label>
+                <input id="signinPassword" name="user[password]" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+              <button type="submit" class="btn btn-success">提交</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5"><img src="<%=movie.poster %>" style="width:100%;">
+          <div class="panel panel-defatul">
+            <div class="panel-heading">
+              <h3>评论区</h3>
+            </div>
+            <div class="panel-body">
+              <ul class="media-list">
+                <% if(comments){ %>
+                 <%  for(var i = 0 ; i < comments.length ; i++){ %>
+                    <li class="media">
+                      <div class="pull-left"><a href="#comments" data-userId="<%=comments[i].userId %>" data-movieId="<%=comments[i].movieId %>" class="comment"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIi8+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 64px; height: 64px;" class="media-object"></a></div>
+                      <div class="media-body">
+                        <h4 class="media-heading"><%=comments[i].userid %></h4>
+                        <p><%=comments[i].content %></p>
+                      </div>
+                      <hr>
+                    </li>
+                 <%  } %>
+                <%  } %>
+                
+              </ul>
+              <div id="comments">
+                <form id="commentForm" method="POST" action="/admin/comment">
+                  <input type="hidden" name="comment[movieid]" value="<%=movie.id %>">
+                  <div class="form-group">
+                    <textarea name="comment[content]" row="3" class="form-control"></textarea>
+                  </div>
+                  <% if(user){ %>
+                      <input type="hidden" name="comment[userid]" value="<%=user.id %>">
+                      <!-- <input type="hidden" name="comment[userName]" value="<%=user.name %>"> -->
+                      <button type="submit" class="btn btn-primary">提交</button>
+                  <%  }else{ %>
+                      <a href="#" data-toggle="modal" data-target="#signinModal" class="navbar-link">登录后评论 </a>
+                   <% } %>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <dl class="dl-horizontal">
+            <dt>电影名字</dt>
+            <dd><%=movie.title %></dd>
+            <dt>导演</dt>
+            <dd><%=movie.doctor %></dd>
+            <dt>国家</dt>
+            <dd><%=movie.country %></dd>
+            <dt>语言</dt>
+            <dd><%=movie.language %></dd>
+            <dt>上映年份</dt>
+            <dd><%=movie.year %></dd>
+            <dt>简介</dt>
+            <dd><%=movie.summary %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <!--
+    <script src="/js/detail.js"></script>-->
+  </body>
+</html>

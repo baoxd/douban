@@ -1,5 +1,6 @@
 const movieAction  = require('../action/movieAction');
 const userAction = require('../action/userAction');
+const commentAction = require("../action/commentAction");
 
 const  Router = function(app){
 
@@ -20,6 +21,9 @@ const  Router = function(app){
 	app.use("/admin/movieList", userAction.adminAuthCheck, movieAction.movieListAdmin);
 	// 电影列表
 	app.use("/admin/movieDetail/:id", userAction.adminAuthCheck, movieAction.movieDetailAdmin);
+
+	// 发表评论
+	app.post("/admin/comment", userAction.adminAuthCheck, commentAction.commentAddAdmin);
 
 
 	// 跳转注册页面

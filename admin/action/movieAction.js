@@ -50,7 +50,7 @@ class MovieAction {
 			res.redirect("/admin/index");
 		}).catch(function(err){
 			console.log(err);
-			res.redirect("error");
+			res.render("error");
 		});
 	}
 
@@ -60,7 +60,7 @@ class MovieAction {
 			res.render("movielist", {list: data});
 		}).catch(function(err){
 			console.log(err);
-			res.redirect("error",{msg:"电影列表查询出错"});
+			res.render("error",{msg:"电影列表查询出错"});
 		});
 	}
 
@@ -68,11 +68,26 @@ class MovieAction {
 	movieDetailAdmin(req, res) {
 		let movieid = req.params.id;
 		if(!movieid){
-			res.redirect("error", {msg: "电影id为空"});
+			res.render("error", {msg: "电影id为空"});
 			return;
 		}
-		movieService.
+		let data = {} ;
+		movieService.findById(movieid).then(function(movies){
+			if(!movies || !movies.length){
+				res.render("error", {msg: "查询出错，没有该电影"});
+				return ;
+			}
+			data.movie = movies[0] ;
+			return commentService.findByMovieId(movieid);
+		}).then(function(comments){
+			data.comments = comments;
+			res.render("moviedetail", data);
+		}).catch(function(err){
+			console.log(err);
+			res.render("error", {msg: "电影详情查询出错"});
+		});
 	}
+
 }
 
 module.exports = new MovieAction();

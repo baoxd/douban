@@ -79,16 +79,16 @@
         </div>
       </div>
     </div>
-    
+
     <div class="container">
       <div class="row">
       	<% if(list){ %>
       		<% for(var i = 0 ; i < list.length ; i++){ %>
       			<div class="col-md-3">
-      			  <div style="height:500px" class="thumbnail"><a href="/detail/<%= list[i].id %>"><img src="<%= list[i].poster %>" alt="<%= list[i].title %>"></a>
+      			  <div style="height:500px" class="thumbnail"><a href="/admin/movieDetail/<%= list[i].id %>"><img src="<%= list[i].poster %>" alt="<%= list[i].title %>"></a>
       			    <div class="caption">
       			      <h3><%= list[i].title %></h3>
-      			      <p><a href="/detail/<%= list[i].id %>" role="button" class="btn btn-primary">观看详情</a></p>
+      			      <p><a href="/admin/movieDetail/<%= list[i].id %>" role="button" class="btn btn-primary">观看详情</a></p>
       			    </div>
       			  </div>
       			</div>
