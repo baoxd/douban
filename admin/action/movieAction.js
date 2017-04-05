@@ -3,6 +3,7 @@
 	提供后台模板输出和前端接口操作
 */
 const movieService = require('../service/MovieService');
+const commentService = require('../service/CommentService');
 const utils = require("../utils/utils");
 
 class MovieAction {
@@ -61,6 +62,11 @@ class MovieAction {
 			console.log(err);
 			res.redirect("error",{msg:"电影列表查询出错"});
 		});
+	}
+
+	// 电影详情页
+	movieDetailAdmin(req, res) {
+
 	}
 }
 

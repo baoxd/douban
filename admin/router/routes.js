@@ -18,6 +18,8 @@ const  Router = function(app){
 	app.use("/admin/movieAdd", userAction.adminAuthCheck, require('connect-multiparty')(), movieAction.movieAddAdmin);
 	// 电影列表
 	app.use("/admin/movieList", userAction.adminAuthCheck, movieAction.movieListAdmin);
+	// 电影列表
+	app.use("/admin/movieDetail", userAction.adminAuthCheck, movieAction.movieDetailAdmin);
 
 
 	// 跳转注册页面
