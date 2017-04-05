@@ -29,7 +29,17 @@ class MovieDao {
 
 	// 根据ID查询
 	findById(id) {
-		
+		return new Promise(function(resolve, reject){
+			let sql = "select * from movie where id = ?" ;
+
+			pool.query(sql, [id], function(err, results, fields){
+				if(err){
+					reject(err);
+					return;
+				}
+				resolve(results);
+			});
+		});
 	}
 
 	// 添加电影

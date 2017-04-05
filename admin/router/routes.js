@@ -19,7 +19,7 @@ const  Router = function(app){
 	// 电影列表
 	app.use("/admin/movieList", userAction.adminAuthCheck, movieAction.movieListAdmin);
 	// 电影列表
-	app.use("/admin/movieDetail", userAction.adminAuthCheck, movieAction.movieDetailAdmin);
+	app.use("/admin/movieDetail/:id", userAction.adminAuthCheck, movieAction.movieDetailAdmin);
 
 
 	// 跳转注册页面

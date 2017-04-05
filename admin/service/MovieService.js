@@ -24,6 +24,11 @@ class MovieService {
 
 	}
 
+	// 根据id查询
+	findById(id) {
+		return movieDao.findById(id);
+	}
+
 	// 添加添加
 	add(movie) {
 		movie.id = utils.uuid();

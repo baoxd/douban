@@ -66,7 +66,12 @@ class MovieAction {
 
 	// 电影详情页
 	movieDetailAdmin(req, res) {
-
+		let movieid = req.params.id;
+		if(!movieid){
+			res.redirect("error", {msg: "电影id为空"});
+			return;
+		}
+		movieService.
 	}
 }
 
