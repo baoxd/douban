@@ -17,7 +17,7 @@ class MovieAction {
 	}
 
 	// 跳转电影添加页
-	movieGoToAdd(req, res) {
+	movieGoToAddAdmin(req, res) {
 		res.render('movieAdd', {
 			title: '电影添加',
 			movie: {
@@ -35,7 +35,7 @@ class MovieAction {
 	}
 
 	// 添加电影
-	movieAdd(req, res) {
+	movieAddAdmin(req, res) {
 		let movie = req.body.movie;
 		// 文件保存
 		if(req.files){
@@ -50,6 +50,16 @@ class MovieAction {
 		}).catch(function(err){
 			console.log(err);
 			res.redirect("error");
+		});
+	}
+
+	// 电影列表
+	movieListAdmin(req, res) {
+		movieService.findAll().then(function(data){
+			res.render("movielist", {list: data});
+		}).catch(function(err){
+			console.log(err);
+			res.redirect("error",{msg:"电影列表查询出错"});
 		});
 	}
 }

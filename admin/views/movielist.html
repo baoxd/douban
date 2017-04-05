@@ -3,7 +3,7 @@
 <html>
   <meta charset="utf-8">
   <head>
-    <title>注册页面</title>
+    <title>电影-列表</title>
     <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="/libs/jquery/dist/jquery.min.js"></script>
     <script Src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -12,7 +12,9 @@
     <div class="container">
       <div class="row">
         <div class="page-header">
-          <h1>注册页面</h1><small>豆瓣电影</small>
+          <h1>电影-列表</h1><small>豆瓣电影</small>
+          <a class="btn btn-primary" style="float:right;" role="button" href="/admin/movieGoToAdd">添加</a>
+          <div style="clear:both;"></div>
         </div>
       </div>
     </div>
@@ -79,36 +81,49 @@
         </div>
       </div>
     </div>
-    
+
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <form method="POST" action="/admin/register">
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="signupName">用户名</label>
-                <input id="signupName" name="user[name]" type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="signupPassword">密码</label>
-                <input id="signupPassword" name="user[password]" type="password" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="signupRole">角色(1: 管理员 2: 普通用户)</label>
-                <input id="signupRole" name="user[role]" type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                  <!-- <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button> -->
-                  <button type="submit" class="btn btn-success">注册</button>
-              </div>
-            </div>
-            <!-- <div class="modal-footer">
-              <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
-              <button type="submit" class="btn btn-success">提交</button>
-            </div> -->
-          </form>
-        </div>
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>电影名字</th>
+              <th>导演</th>
+              <th>国家</th>
+              <th>语言</th>
+              <th>上映年份</th>
+              <th>录入时间</th>
+              <!-- <th>pv</th> -->
+              <th>简介</th>
+              <th>查看</th>
+              <th>更新</th>
+              <th>删除</th>
+            </tr>
+            <tbody>
+            	<% if(list && list.length) { %>
+				<% for(var i = 0 ; i < list.length ; i++){ %>
+					<tr class="item-id-5835602bfff2ba13b8a74590">
+		                <td><%=list[i].title %></td>
+		                <td><%=list[i].doctor %></td>
+		                <td><%=list[i].country %></td>
+		                <td><%=list[i].language %></td>
+		                <td><%=list[i].year %></td>
+		                <td><%=moment(list[i].createtime*1).format('MM/DD/YYYY') %></td>
+		                <!-- <th><%=list[i].pv %></th> -->
+		                <td><%=list[i].summary %></td>
+		                <td><a target="_blank" href="../admin/movieDetail/<%=list[i].id %>">查看</a></td>
+		                <td><a target="_blank" href="../admin/movieUpdate/<%=list[i].id %>">修改</a></td>
+		                <td>
+		                  <button type="button" data-id="<%=list[i].id %>" class="btn btn-danger del">删除</button>
+		                </td>
+		              </tr>
+				<% } %>
+            	<% } %>
+            </tbody>
+          </thead>
+        </table>
       </div>
     </div>
+    <script src="/js/admin.js"></script>
   </body>
 </html>

@@ -12,10 +12,12 @@ const  Router = function(app){
 	// 首页
 	app.use("/admin/index", userAction.adminAuthCheck , movieAction.indexAdmin);
 	// 跳转到添加电影
-	app.use("/admin/movieGoToAdd", userAction.adminAuthCheck, movieAction.movieGoToAdd);
+	app.use("/admin/movieGoToAdd", userAction.adminAuthCheck, movieAction.movieGoToAddAdmin);
 	// 添加电影
 	// connect-multiparty 文件上传中间件 
-	app.use("/admin/movieAdd", userAction.adminAuthCheck, require('connect-multiparty')(), movieAction.movieAdd);
+	app.use("/admin/movieAdd", userAction.adminAuthCheck, require('connect-multiparty')(), movieAction.movieAddAdmin);
+	// 电影列表
+	app.use("/admin/movieList", userAction.adminAuthCheck, movieAction.movieListAdmin);
 
 
 	// 跳转注册页面
