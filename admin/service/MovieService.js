@@ -36,15 +36,16 @@ class MovieService {
 		return movieDao.add(movie);
 	}
 
+	// 保存电影
+	save(movie) {
+		return movieDao.save(movie);
+	}
+
 	// 删除电影
 	delete(id) {
 
 	} 
 
-	// 更新电影
-	update(movie) {
-
-	}
 }
 
 module.exports = new MovieService();

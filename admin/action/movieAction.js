@@ -46,12 +46,23 @@ class MovieAction {
 			res.redirect("error", {msg: "电影参数有误"});
 			return;
 		}
-		movieService.add(movie).then(function(data){
-			res.redirect("/admin/index");
-		}).catch(function(err){
-			console.log(err);
-			res.render("error");
-		});
+		// 添加
+		if (!movie.id) {
+			movieService.add(movie).then(function(data) {
+				res.redirect("/admin/index");
+			}).catch(function(err) {
+				console.log(err);
+				res.render("error");
+			});
+		}else{
+			// 保存
+			movieService.save(movie).then(function(data){
+				res.redirect("/admin/movieList");
+			}).catch(function(err){
+				console.log(err);
+				res.render("error", {msg: "电影保存出错"});
+			});
+		}
 	}
 
 	// 电影列表
@@ -85,6 +96,29 @@ class MovieAction {
 		}).catch(function(err){
 			console.log(err);
 			res.render("error", {msg: "电影详情查询出错"});
+		});
+	}
+
+	// 更新
+	movieUpdateAdmin(req, res) {
+		let movieid = req.params.id ;
+
+		if(!movieid){
+			res.render("error", {msg: "电影id为空"});
+			return;
+		}
+
+		movieService.findById(movieid).then(function(movies){
+			if(!movies || !movies.length){
+				res.render("error", {msg: "没有查到该电影"});
+				return;
+			}
+			res.render("movieAdd", {
+				title: "电影更新",
+				movie: movies[0]
+			});
+		}).catch(function(err){
+			res.render("error", {msg: "电影查询出错"});
 		});
 	}
 

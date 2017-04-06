@@ -21,6 +21,8 @@ const  Router = function(app){
 	app.use("/admin/movieList", userAction.adminAuthCheck, movieAction.movieListAdmin);
 	// 电影列表
 	app.use("/admin/movieDetail/:id", userAction.adminAuthCheck, movieAction.movieDetailAdmin);
+	// 更新
+	app.use("/admin/movieUpdate/:id", userAction.adminAuthCheck, movieAction.movieUpdateAdmin);
 
 	// 发表评论
 	app.post("/admin/comment", userAction.adminAuthCheck, commentAction.commentAddAdmin);

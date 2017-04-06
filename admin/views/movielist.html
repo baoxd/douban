@@ -111,8 +111,8 @@
 		                <td><%=moment(list[i].createtime*1).format('MM/DD/YYYY') %></td>
 		                <!-- <th><%=list[i].pv %></th> -->
 		                <td><%=list[i].summary %></td>
-		                <td><a target="_blank" href="../admin/movieDetail/<%=list[i].id %>">查看</a></td>
-		                <td><a target="_blank" href="../admin/movieUpdate/<%=list[i].id %>">修改</a></td>
+		                <td><a target="_self" href="../admin/movieDetail/<%=list[i].id %>">查看</a></td>
+		                <td><a target="_self" href="../admin/movieUpdate/<%=list[i].id %>">修改</a></td>
 		                <td>
 		                  <button type="button" data-id="<%=list[i].id %>" class="btn btn-danger del">删除</button>
 		                </td>
