@@ -43,7 +43,7 @@ class MovieService {
 
 	// 删除电影
 	delete(id) {
-
+		return movieDao.delete(id);
 	} 
 
 }

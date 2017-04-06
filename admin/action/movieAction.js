@@ -122,6 +122,28 @@ class MovieAction {
 		});
 	}
 
+	// 删除
+	movieDeleteAdmin(req, res) {
+		let movieid = req.query.id;
+
+		if(!movieid){
+			res.render("error", {msg: "电影id为空"});
+			return;
+		}
+		movieService.delete(movieid).then(function(data){
+			if(data){
+				res.json({msg:true});
+			}
+			else{
+				res.json({msg:false});
+			}
+		}).catch(function(err){
+			console.log(err);
+			res.render("error", {msg: "电影删除出错"});
+		});
+
+	}
+
 }
 
 module.exports = new MovieAction();

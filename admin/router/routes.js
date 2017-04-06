@@ -23,6 +23,8 @@ const  Router = function(app){
 	app.use("/admin/movieDetail/:id", userAction.adminAuthCheck, movieAction.movieDetailAdmin);
 	// 更新
 	app.use("/admin/movieUpdate/:id", userAction.adminAuthCheck, movieAction.movieUpdateAdmin);
+	// 删除
+	app.delete("/admin/movieDelete", userAction.adminAuthCheck, movieAction.movieDeleteAdmin);
 
 	// 发表评论
 	app.post("/admin/comment", userAction.adminAuthCheck, commentAction.commentAddAdmin);

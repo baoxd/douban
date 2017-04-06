@@ -83,6 +83,21 @@ class MovieDao {
 		});
 	}
 
+	// 删除
+	delete(id) {
+		return new Promise(function(resolve, reject){
+			let sql = `delete from movie where id = ?` ;
+
+			pool.query(sql, [id], function(err, results){
+				if(err){
+					reject(err);
+					return;
+				}
+				resolve(results);
+			});
+		});
+	}
+
 	// async函数，node暂时不支持，V7版本支持，Node运行参数里加上--harmony或者--harmony-async-await
 	// async execMethod(method, ...args) {
 	// 	let result = await this[method](...args) ;

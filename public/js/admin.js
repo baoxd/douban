@@ -6,11 +6,9 @@ $('.del').on('click',function(){
 
 	$.ajax({
 		type:'DELETE',
-		url: '/admin/control/delete?id=' + id
+		url: '/admin/movieDelete?id=' + id
 	}).done(function(ret){
-		console.log(ret);
 		if(ret && ret.msg){
-			console.log(tr);
 			if(tr && tr.length>0){
 				tr.remove();
 			}
