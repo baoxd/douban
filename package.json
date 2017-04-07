@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test",
-    "dev": "set NODE_ENV=development && webpack-dev-server  --hot  --config webpack.dev.js",
+    "dev": "set NODE_ENV=development && webpack-dev-server  --hot --inline --config webpack.dev.js",
     "server": "node ./server.js --harmony-async-await "
   },
   "repository": {
@@ -43,8 +43,11 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "react-router": "^4.0.0",
+    "react-router-dom": "^4.0.0",
     "react-transform-hmr": "^1.0.4",
     "redux": "^3.6.0",
+    "redux-logger": "^3.0.1",
+    "redux-thunk": "^2.2.0",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   }

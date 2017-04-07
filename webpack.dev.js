@@ -10,7 +10,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, "app/dist"),
 		filename: "[name].js",
-		publicPath: "http://localhost:8080",
+		publicPath: "http://localhost:8080/app/dist",
 		chunkFilename: "[name].js"
 	},
 	resolve: {
@@ -43,10 +43,10 @@ module.exports = {
 	],
 	devServer: {
 		port: 8080,
-		contentBase: path.join(__dirname, "app/dist"),
+		contentBase: ".",
 		hot: true,
 		historyApiFallback: true,
-		publicPath: "",
+		publicPath: "/app/dist",
 		stats: {
 			colors: true
 		}
