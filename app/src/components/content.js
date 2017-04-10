@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux" ;
 // import HotMovie from "./hotMovie" ;
 import MovieList from "./movieList";
+import FindMore from "./findMore";
 
 
 class Content extends Component{
@@ -87,7 +88,6 @@ class Content extends Component{
 			}
 		] ;
 
-
 		return (
 			<div className="page">
 				<div className="card">
@@ -97,6 +97,8 @@ class Content extends Component{
 					<MovieList movies={ freeMovies } title="免费在线观影" onClick={() => {console.log('跳转到电影详情'); }}  moreClick={() => {console.log("点击更多");}}/>
 					{/*  新片速递  */ }
 					<MovieList movies={ newMovies } title="新片速递" onClick={() => {console.log('跳转到电影详情'); }}  moreClick={() => {console.log("点击更多");}}/>
+					{/*  发现更多  */ }
+					<FindMore />
 				</div>
 			</div>
 		);
