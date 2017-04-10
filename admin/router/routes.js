@@ -1,6 +1,7 @@
 const movieAction  = require('../action/movieAction');
 const userAction = require('../action/userAction');
 const commentAction = require("../action/commentAction");
+const indexAction = require("../action/indexAction");
 
 const  Router = function(app){
 
@@ -42,6 +43,11 @@ const  Router = function(app){
 	app.use("/admin/userlist", userAction.adminAuthCheck , userAction.userListAdmin);
 	// 退出登录
 	app.use("/admin/logout", userAction.logoutAdmin);
+
+	// 前端页面
+	app.use("/", indexAction.index);
+	app.use("/index.html", indexAction.index);
+	app.use("*", indexAction.index);
 }
 
 module.exports = Router;

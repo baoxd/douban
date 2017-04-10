@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm run test",
     "dev": "set NODE_ENV=development && webpack-dev-server  --hot --inline --config webpack.dev.js",
+    "build": "set NODE_ENV=production && webpack --hot --config webpack.pro.js",
     "server": "node ./server.js --harmony-async-await "
   },
   "repository": {
@@ -37,6 +38,7 @@
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
+    "mime-types": "^2.1.15",
     "moment": "^2.18.1",
     "mysql": "^2.13.0",
     "react": "^15.4.2",
