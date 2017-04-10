@@ -1,8 +1,8 @@
 const resType = {
 	// 电影
-	MOVIE:"MOVIE",
+	movie:"movie",
 	// 读书
-	BOOK:"BOOK"
+	book:"book"
 };
 
 export default resType;

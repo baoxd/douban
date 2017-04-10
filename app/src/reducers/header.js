@@ -1,12 +1,10 @@
-const header = (state = {type: "movie"}, action) => {
+import { headerActionTypes } from "../utils/actionType";
+
+const header = (state = {currResType: "movie"}, action) => {
 	switch (action.type) {
-		case "MOVIE":
+		case headerActionTypes.switchType :
 			return {
-				type:"movie"
-			};
-		case "BOOK":
-			return {
-				type:"book"
+				currResType: action.value
 			};
 		default:
 			return state;
