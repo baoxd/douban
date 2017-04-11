@@ -19,11 +19,11 @@ class Content extends Component{
 
 		if(currResType && currResType == "movie"){
 			// 热门电影
-			nodeArr.push(<MovieList movies={ hotMovies } key="1" title="影院热映" onClick={() => {console.log('跳转到电影详情'); }}  moreClick={() => {movieMoreClick("/movie/nowintheater");} }/>);
+			nodeArr.push(<MovieList movies={ hotMovies } key="1" title="影院热映" onClick={() => {console.log('跳转到电影详情'); }}  morelink="/movie/hotmore"/>);
 			// 免费电影
-			nodeArr.push(<MovieList movies={ freeMovies } key="2" title="免费在线观影" onClick={() => {console.log('跳转到电影详情'); }}  moreClick={() => {movieMoreClick("/movie/watchonline");} }/>);
+			nodeArr.push(<MovieList movies={ freeMovies } key="2" title="免费在线观影" onClick={() => {console.log('跳转到电影详情'); }}  morelink="/movie/freemore"/>);
 			//新片速递
-			nodeArr.push(<MovieList movies={ newMovies } key="3" title="新片速递" onClick={() => {console.log('跳转到电影详情'); }}  moreClick={() => {movieMoreClick("/movie/latest");} }/>);
+			nodeArr.push(<MovieList movies={ newMovies } key="3" title="新片速递" onClick={() => {console.log('跳转到电影详情'); }}  morelink="/movie/newmore"/>);
 		}else{
 			// 虚构类图书
 			nodeArr.push(<BookList  key="1" books={ fictitiousBooks } title="最受关注图书｜虚构类" moreClick={ () => { bookMoreClick("/book/hotfiction") } }/>);

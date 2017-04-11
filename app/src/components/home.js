@@ -4,8 +4,26 @@ import React , { Component } from "react" ;
 import { connect }  from "react-redux";
 import Header from "./header";
 import Content from "./content";
+import headerAction from "../actions/headerAction";
+import resType from "../utils/resType" ;
+
 
 class Home extends Component {
+	constructor(props) {
+		super(props);
+		console.log(111111);
+	}
+
+	componentWillMount() {
+		let { match, switchType, history } = this.props;
+
+		if(match.url == "/book"){
+			switchType(resType.book);
+		}else if(match.url == "/movie"){
+			switchType(resType.movie);
+		}
+	}
+
 	render() {
 		return (
 			<div>
@@ -16,4 +34,10 @@ class Home extends Component {
 	}
 }
 
-export default connect(state=>state)(Home);
+export default connect(state=>state, dispatch => {
+	return {
+		switchType: (resType) => {
+			dispatch( headerAction.switchType( resType ) );
+		}
+	};
+})(Home);

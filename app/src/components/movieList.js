@@ -1,10 +1,11 @@
 // 电影横向列表
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class MovieList extends Component {
 	render() {
-		let {movies, title, onClick, moreClick } = this.props ;
+		let {movies, title, onClick, morelink } = this.props ;
 		let movieItems = movies.map(function(movie, index){
 			return (
 				<li className="item item__movie" key={ index }>
@@ -32,7 +33,7 @@ class MovieList extends Component {
 			<section id="movie_showing">
 				<header>
 					<h2>{ title }</h2>
-						<a href="javascript:void(0);" onClick={ moreClick }>更多</a>
+						<Link to={ morelink }>更多</Link>
 				</header>
 				<div className="section-content">
 					<ul className="row items">
@@ -46,6 +47,6 @@ class MovieList extends Component {
 
 export default connect(state => state, dispatch => {
 	return {
-		
+
 	};
 })(MovieList);

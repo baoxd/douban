@@ -20,7 +20,7 @@ ReactDOM.render(
             {routes}
         </Router>
     </Provider>,
-    document.getElementById('app')
+    document.getElementById('react_app')
 );
 
 // 组件测试
