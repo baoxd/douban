@@ -4,11 +4,14 @@ import { connect } from "react-redux" ;
 // import HotMovie from "./hotMovie" ;
 import MovieList from "./movieList";
 import FindMore from "./findMore";
+import ClassBrowse from "./ClassBrowse";
+import Footer from "./footer";
 
 
 class Content extends Component{
 	render() {
 		const currResType = this.props.header.currResType;
+
 		let hotMovies = [
 			{
 				poster:"https://qnmob2.doubanio.com/view/movie_poster_cover/lpst/public/p2453176400.jpg?imageView2/0/q/80/w/9999/h/200/format/jpg",
@@ -99,7 +102,11 @@ class Content extends Component{
 					<MovieList movies={ newMovies } title="新片速递" onClick={() => {console.log('跳转到电影详情'); }}  moreClick={() => {console.log("点击更多");}}/>
 					{/*  发现更多  */ }
 					<FindMore />
+					{/* 分类浏览 */}
+					<ClassBrowse />
 				</div>
+				{/* footer */}
+				<Footer />
 			</div>
 		);
 	}
