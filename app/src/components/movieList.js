@@ -46,5 +46,6 @@ class MovieList extends Component {
 
 export default connect(state => state, dispatch => {
 	return {
+		
 	};
 })(MovieList);
