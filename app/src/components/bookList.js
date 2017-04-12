@@ -2,11 +2,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import BookItem from "./bookItem";
+import { Link } from "react-router-dom";
+
 import style from "../../../public/css/home.css";
 
 class BookList extends Component {
 	render() {
-		let { books , title, itemClick, moreClick } = this.props;
+		let { books , title, itemClick, morelink } = this.props;
 		let bookItems = books.map(function(book, index){
 			return <BookItem poster={ book.poster } name={ book.name } itemClick={ itemClick } key={ index }/>
 		});
@@ -15,7 +17,7 @@ class BookList extends Component {
 			<section id="book_fiction">
 				<header>
 					<h2>{ title }</h2>
-					<a href="javascript:void(0);" onClick={ () => moreClick() } >更多</a>
+					<Link to={ morelink }>更多</Link>
 				</header>
 				<div className={style['section-content']}>
 					<ul className={style.row +' '+ style.items}>

@@ -28,9 +28,9 @@ class Content extends Component{
 			nodeArr.push(<MovieList movies={ newMovies } key="3" title="新片速递" onClick={() => {console.log('跳转到电影详情'); }}  morelink="/movie/newmore"/>);
 		}else{
 			// 虚构类图书
-			nodeArr.push(<BookList  key="1" books={ fictitiousBooks } title="最受关注图书｜虚构类" moreClick={ () => { bookMoreClick("/book/hotfiction") } }/>);
+			nodeArr.push(<BookList  key="1" books={ fictitiousBooks } title="最受关注图书｜虚构类" morelink="/book/hotfiction"/>);
 			// 现实类图书
-			nodeArr.push(<BookList  key="2" books={ realityBooks } title="最受关注图书｜非虚构类" moreClick={ () => { bookMoreClick("/book/hotnonfiction") } }/>);
+			nodeArr.push(<BookList  key="2" books={ realityBooks } title="最受关注图书｜非虚构类" morelink="/book/hotnonfiction"/>);
 			// 豆瓣纸书
 			// nodeArr.push(<PaperBooks key="3" books={ paperBooks } title="豆瓣纸书"/>);
 		}
