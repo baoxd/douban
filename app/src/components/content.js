@@ -10,6 +10,8 @@ import ClassBrowse from "./ClassBrowse";
 import Footer from "./footer";
 import { hotMovies, freeMovies, newMovies, fictitiousBooks, realityBooks, paperBooks } from "../utils/staticData";
 
+import style from "../../../public/css/home.css";
+
 
 class Content extends Component{
 	render() {
@@ -37,8 +39,8 @@ class Content extends Component{
 		nodeArr.push(<ClassBrowse key="9"/>);
 
 		return (
-			<div className="page">
-				<div className="card">
+			<div className={style.page}>
+				<div className={style.card}>
 					{ nodeArr }					
 				</div>
 				<Footer />

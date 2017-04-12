@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FindMoreItem from "./findMoreItem";
+import style from "../../../public/css/home.css";
 
 class FindMore extends Component {
 	render() {
@@ -88,11 +89,11 @@ class FindMore extends Component {
 		});
 
 		return (
-			<section className="interests">
+			<section className={style.interests}>
 				<header>
 					<h2>{ title }</h2>
 				</header>
-				<div className="section-content">
+				<div className={style['section-content']}>
 					<ul>
 						{ lis }
 					</ul>

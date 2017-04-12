@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import headerAction from "../actions/headerAction";
 import { Link } from "react-router-dom";
 
+import style from "../../../public/css/base.css";
+
 
 class Header extends Component {
 
@@ -17,8 +19,8 @@ class Header extends Component {
 
 		return (
 			<div id="TalionNav">
-				<header className="TalionNav">
-					<div className="TalionNav-primary">
+				<header className={style.TalionNav}>
+					<div className={style['TalionNav-primary']}>
 						<a href="/"><h1>豆瓣</h1></a>
 						<nav>
 							<ul>

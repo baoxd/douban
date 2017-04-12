@@ -23,6 +23,9 @@ module.exports = {
 			include: path.join(__dirname, "app/src"),
 			exclude: /node_modules/,
 			loader: "babel-loader"
+		}, {
+			test:/\.css$/,
+			loader:"style-loader!css-loader?modules"
 		}]
 	},
 	plugins: [

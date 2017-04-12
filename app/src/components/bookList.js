@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import BookItem from "./bookItem";
+import style from "../../../public/css/home.css";
 
 class BookList extends Component {
 	render() {
@@ -16,8 +17,8 @@ class BookList extends Component {
 					<h2>{ title }</h2>
 					<a href="javascript:void(0);" onClick={ () => moreClick() } >更多</a>
 				</header>
-				<div className="section-content">
-					<ul className="row items">
+				<div className={style['section-content']}>
+					<ul className={style.row +' '+ style.items}>
 						{ bookItems }
 					</ul>
 				</div>

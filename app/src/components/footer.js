@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import style from "../../../public/css/home.css";
 
 class Footer extends Component {
 	render() {
 		return (
-			<div className="download-app">
-				<div className="info">
+			<div className={style['download-app']}>
+				<div className={style.info}>
 					<img src="https://img3.doubanio.com/f/talion/7837f29dd7deab9416274ae374a59bc17b5f33c6/pics/card/douban-app-logo.png" width="48" />
-					<div className="info-content">
+					<div className={style['info-content']}>
 						<strong>豆瓣</strong>
 						<div>我们的精神角落</div>
 					</div>

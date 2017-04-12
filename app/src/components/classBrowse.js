@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ClassBrowseItem from "./ClassBrowseItem" ;
+import style from "../../../public/css/home.css";
 
 class ClassBrowse extends Component {
 	render() {
@@ -136,13 +137,13 @@ class ClassBrowse extends Component {
 		});
 
 		return (
-			<section className="types">
+			<section className={style.types}>
 				<header>
 					<h2>分类浏览</h2>
 				</header>
-				<div className="section-content">
+				<div className={style['section-content']}>
 					<a name="cate"></a>
-					<ul className="type-list">
+					<ul className={style['type-list']}>
 						{ lis }
 					</ul>
 				</div>
