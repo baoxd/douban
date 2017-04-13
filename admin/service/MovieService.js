@@ -16,13 +16,9 @@ class MovieService {
 
 	// 查询热门电影
 	findHot() {
-
+		return movieDao.findByType('1');
 	}
 
-	// 根据电影类型查询电影
-	findByType(type) {
-
-	}
 
 	// 根据id查询
 	findById(id) {

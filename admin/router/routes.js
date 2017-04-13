@@ -44,6 +44,9 @@ const  Router = function(app){
 	// 退出登录
 	app.use("/admin/logout", userAction.logoutAdmin);
 
+	// APIS
+	app.use("/movie/getHotMovies", movieAction.getHotMovies);
+
 	// 前端页面
 	app.use("/", indexAction.index);
 	app.use("/index.html", indexAction.index);

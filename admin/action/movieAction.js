@@ -144,6 +144,25 @@ class MovieAction {
 
 	}
 
+	// APIS
+	getHotMovies(req, res) {
+		movieService.findHot().then(function(data){
+			if(data){
+				res.json({
+					state:true,
+					movieList:data
+				});
+			}else{
+				res.json({
+					state:false
+				});
+			}
+		}).catch(function(err){
+			console.log(err);
+			res.json({state: false});
+		});
+	}
+
 }
 
 module.exports = new MovieAction();

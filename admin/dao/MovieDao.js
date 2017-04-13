@@ -24,7 +24,17 @@ class MovieDao {
 
 	// 根据类型查询
 	findByType(type = null) {
+		return new Promise(function(resolve, reject){
+			let sql = `select * from movie where type = ?`;
 
+			pool.query(sql, [type], function(err, results, fields){
+				if(err){
+					reject(err);
+					return;
+				}
+				resolve(results);
+			});
+		});
 	}
 
 	// 根据ID查询

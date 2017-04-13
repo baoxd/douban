@@ -1,6 +1,6 @@
 // 主页-header头
 import React , { Component } from "react";
-import resType from "../utils/resType";
+// import resType from "../utils/resType";
 import { connect } from "react-redux";
 import headerAction from "../actions/headerAction";
 import { Link } from "react-router-dom";
