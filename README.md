@@ -8,7 +8,7 @@
 前端使用react做页面应用，react-router支持路由，redux管理前端数据。其中react-router为4.0版，较上版改动很大，请慎用。
 打包简单使用了webpack。开发阶段使用react-transform-hmr提供热更新能力。css文件使用豆瓣移动端web的css, 这样导致不同路由下css冲突，使用css-loader?mocules解决css冲突问题。
 
-##使用
+## 使用
 git clone https://github.com/baoxd/douban.git
 cd douban
 
@@ -21,8 +21,7 @@ npm run server
 在浏览器输入
 http://localhost:8080/
 
-##
-项目需要mysql服务器支持
+##  项目需要mysql服务器支持
 const HOST = "XXX";
 const USER = "XXX" ;
 const PASSWORD = "XXX";
