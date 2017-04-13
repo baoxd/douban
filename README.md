@@ -9,23 +9,23 @@
 打包简单使用了webpack。开发阶段使用react-transform-hmr提供热更新能力。css文件使用豆瓣移动端web的css, 这样导致不同路由下css冲突，使用css-loader?mocules解决css冲突问题。
 
 ## 使用
-git clone https://github.com/baoxd/douban.git
-cd douban
+`git clone https://github.com/baoxd/douban.git`
+`cd douban`
 
-npm run dev
-在浏览器输入
-http://localhost:8001/
+`npm run dev`
+`在浏览器输入`
+`http://localhost:8001/`
 
-npm run build
-npm run server
-在浏览器输入
-http://localhost:8080/
+`npm run build`
+`npm run server`
+`在浏览器输入`
+`http://localhost:8080/`
 
 ##  项目需要mysql服务器支持
-const HOST = "XXX";
-const USER = "XXX" ;
-const PASSWORD = "XXX";
-const DATABASE = "XXX";
+`const HOST = "XXX";`
+`const USER = "XXX" ;`
+`const PASSWORD = "XXX";`
+`const DATABASE = "XXX";`
 
 在db.js文件根据自己mysql 修改上面配置。
 后台详细路径请看/admin/router/routes.js文件
