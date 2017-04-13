@@ -36,6 +36,7 @@
     "body-parser": "^1.17.1",
     "clean-webpack-plugin": "^0.1.16",
     "connect-multiparty": "^2.0.0",
+    "cors": "^2.8.3",
     "css-loader": "^0.28.0",
     "ejs": "^2.5.6",
     "express": "^4.15.2",

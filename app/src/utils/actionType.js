@@ -4,7 +4,7 @@ export const headerActionTypes = {
 }
 
 export const movieActionTypes = {
-	preGetHotMovies:"preGetHotMovies",
-	getHotMovies:"getHotMovies",
-	failGetHotMovies:"failGetHotMovies"
+	FETCH_HOTMOVIE_REQUEST:"FETCH_HOTMOVIE_REQUEST",
+	FETCH_HOTMOVIE_SUCCESS:"FETCH_HOTMOVIE_SUCCESS",
+	FETCH_HOTMOVIE_FAILURE: "FETCH_HOTMOVIE_FAILURE"
 }

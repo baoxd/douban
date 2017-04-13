@@ -8,20 +8,33 @@ import BookList from "./bookList";
 import FindMore from "./findMore";
 import ClassBrowse from "./ClassBrowse";
 import Footer from "./footer";
+import movieAction from "../actions/movieAction";
 import { hotMovies, freeMovies, newMovies, fictitiousBooks, realityBooks, paperBooks } from "../utils/staticData";
 
 import style from "../../../public/css/home.css";
 
 
 class Content extends Component{
+
+	componentWillMount() {
+		const { hotMoviesList, dispatch } = this.props;
+
+		// 请求热门电影
+		if(!hotMoviesList || !hotMoviesList.length ){
+			dispatch(movieAction.getHotMovies);
+		}
+	}
+
 	render() {
 		const currResType = this.props.header.currResType;
-		let { movieMoreClick, bookMoreClick } = this.props;
 		let nodeArr = [] ;
 
 		if(currResType && currResType == "movie"){
+			let { hotMoviesList }  = this.props.movie ;
+			console.log(hotMoviesList);
+
 			// 热门电影
-			nodeArr.push(<MovieList movies={ hotMovies } key="1" title="影院热映" onClick={() => {console.log('跳转到电影详情'); }}  morelink="/movie/hotmore"/>);
+			nodeArr.push(<MovieList movies={ hotMoviesList } key="1" title="影院热映" onClick={() => {console.log('跳转到电影详情'); }}  morelink="/movie/hotmore"/>);
 			// 免费电影
 			nodeArr.push(<MovieList movies={ freeMovies } key="2" title="免费在线观影" onClick={() => {console.log('跳转到电影详情'); }}  morelink="/movie/freemore"/>);
 			//新片速递
@@ -49,13 +62,4 @@ class Content extends Component{
 	}
 }
 
-export default connect(state=>state, dispatch => {
-	return {
-		movieMoreClick: (link) => {
-			console.log('点击更多...' + link);
-		},
-		bookMoreClick: (link) => {
-			console.log('点击更多...' + link);
-		}
-	};
-})(Content);
+export default connect(state=>state)(Content);

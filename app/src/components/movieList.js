@@ -12,7 +12,7 @@ class MovieList extends Component {
 				<li className={style.item +' '+ style['item__movie']} key={ index }>
 					<a href="javascript:void(0);" onClick={ onClick }>
 						<div className={style['item-poster']} style={{backgroundImage : 'url('+ movie.poster +')' }}></div>
-							<span className={style['item-title']}>{ movie.name }</span>
+							<span className={style['item-title']}>{ movie.name || movie.title}</span>
 							<div className={style['item-rating']}>
 								<div className={style.rank}>
 									<span className={style['rating-stars']} data-rating="3.3">

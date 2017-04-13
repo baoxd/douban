@@ -10,23 +10,25 @@ export default {
 	getHotMovies(dispatch, getState) {
 		// 接口请求前action 
 		dispatch({
-			type: movieActionTypes.preGetHotMovies,
+			type: movieActionTypes.FETCH_HOTMOVIE_REQUEST,
 			msg:"数据请求中，请耐心等待..."
 		});
 
-		fetch(APIS.getHotMovies)
-			.then(response => {
-				// 接口请求成功
+		fetch(APIS.getHotMovies).then(response => {
+			return response.json();
+		}).then(data => {
+			if(data.state){
 				dispatch({
-					type: movieActionTypes.getHotMovies ,
-					hotMoviesList: response.json(),
+					type: movieActionTypes.FETCH_HOTMOVIE_SUCCESS,
+					hotMoviesList: data.movieList
 				});
-			}, e => {
-				// 失败
-				dispatch({
-					type: movieActionTypes.failGetHotMovies,
-					msg: e,
-				});
+			}
+		}).catch(e => {
+			// 失败
+			dispatch({
+				type: movieActionTypes.FETCH_HOTMOVIE_FAILURE,
+				msg: e
 			});
+		});
 	}
 }

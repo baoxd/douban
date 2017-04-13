@@ -9,19 +9,19 @@ let initSate = {
 
 const movie = (state = initSate , action) => {
 	switch(action.type) {
-		case movieActionTypes.preGetHotMovies:
+		case movieActionTypes.FETCH_HOTMOVIE_REQUEST:
 			return {
 				...state,
 				hotMoviesLoading: true
 			}
-		case movieActionTypes.getHotMovies:
+		case movieActionTypes.FETCH_HOTMOVIE_SUCCESS:
 			return {
 				...state,
 				hotMoviesList: action.hotMoviesList,
 				hotMoviesLoading:false,
 				hotMoviesFailMsg:''
 			}
-		case movieActionTypes.failGetHotMovies:
+		case movieActionTypes.FETCH_HOTMOVIE_FAILURE:
 			return {
 				...state,
 				hotMoviesList: [],
