@@ -10,21 +10,30 @@
 
 ## 使用
 `git clone https://github.com/baoxd/douban.git`
+
 `cd douban`
 
 `npm run dev`
+
 `在浏览器输入`
+
 `http://localhost:8080/`
 
 `npm run build`
+
 `npm run server`
+
 `在浏览器输入`
+
 `http://localhost:8001/`
 
 ##  项目需要mysql服务器支持
 `const HOST = "XXX";`
+
 `const USER = "XXX" ;`
+
 `const PASSWORD = "XXX";`
+
 `const DATABASE = "XXX";`
 
 在db.js文件根据自己mysql 修改上面配置。
