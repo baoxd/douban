@@ -14,12 +14,12 @@
 
 `npm run dev`
 `在浏览器输入`
-`http://localhost:8001/`
+`http://localhost:8080/`
 
 `npm run build`
 `npm run server`
 `在浏览器输入`
-`http://localhost:8080/`
+`http://localhost:8001/`
 
 ##  项目需要mysql服务器支持
 `const HOST = "XXX";`
