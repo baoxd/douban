@@ -17,7 +17,8 @@ import style from "../../../public/css/home.css";
 class Content extends Component{
 
 	componentWillMount() {
-		const { hotMoviesList, dispatch } = this.props;
+		const { dispatch , movie : { hotMoviesList }} = this.props;
+		console.log(hotMoviesList)
 
 		// 请求热门电影
 		if(!hotMoviesList || !hotMoviesList.length ){
@@ -31,8 +32,6 @@ class Content extends Component{
 
 		if(currResType && currResType == "movie"){
 			let { hotMoviesList }  = this.props.movie ;
-			console.log(hotMoviesList);
-
 			// 热门电影
 			nodeArr.push(<MovieList movies={ hotMoviesList } key="1" title="影院热映" onClick={() => {console.log('跳转到电影详情'); }}  morelink="/movie/hotmore"/>);
 			// 免费电影

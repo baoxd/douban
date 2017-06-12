@@ -10,7 +10,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, "app/dist"),
 		filename: "[name].js",
-		publicPath: "http://localhost:8080/app/dist",
+		// publicPath: "http://localhost:8080/app/dist",
 		chunkFilename: "[name].js"
 	},
 	resolve: {

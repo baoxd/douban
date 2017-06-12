@@ -60,8 +60,6 @@ class MoreBook extends Component {
 
 		lis = this.getBookList(resArr);
 
-		console.log(lis)
-
 		return (
 			<div>
 				<Header />

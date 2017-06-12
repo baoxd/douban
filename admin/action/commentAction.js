@@ -12,7 +12,7 @@ class CommentAction {
 		}
 		commentService.add(comment).then(function(data){
 			res.redirect("/admin/movieDetail/" + comment.movieid);
-		}).catch(function(err){
+		}).catch(function(err){ 
 			console.log(err);
 			res.render("error", {msg: "评论添加出错"});
 		});
