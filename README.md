@@ -13,6 +13,8 @@
 
 `cd douban`
 
+`npm install`
+
 `npm run dev`
 
 `在浏览器输入`
